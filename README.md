@@ -48,7 +48,7 @@ API REST para catálogo de livros com **Node.js**, **Express**, **MongoDB** e te
 |---|---|---|
 | [Express](https://expressjs.com) | 5.x | Framework HTTP |
 | [Mongoose](https://mongoosejs.com) | 9.x | ODM para MongoDB |
-| [MongoDB Atlas](https://mongodb.com/atlas) | — | Banco de dados NoSQL na nuvem |
+| [MongoDB Atlas](https://mongodb.com/atlas) | — | Banco de dados NoSQL na nuvem, crie uma conta e ajusteo código para continuar a executar essa stack |
 | [Cypress](https://cypress.io) | 15.x | Testes E2E |
 | [cypress-mongodb](https://github.com/ivsgroup/cypress-mongodb) | 7.x | Manipulação do banco nos testes |
 | [cypress-plugin-api](https://github.com/filiphric/cypress-plugin-api) | 2.x | Comando `cy.api()` |
@@ -90,7 +90,7 @@ O servidor sobe em **`http://localhost:50000`**.
 
 ```
 livros-api/
-├── .env                    # Variáveis de ambiente (NÃO comitar)
+├── .env                    # Variáveis de ambiente (NÃO comitar, é sua autenticação)
 ├── .env.example            # Modelo seguro para versionamento
 ├── .gitignore
 ├── package.json
@@ -314,7 +314,7 @@ npm test                # Headless (CI)
 Crie um arquivo `.env` na raiz do projeto (use `.env.example` como modelo):
 
 ```ini
-MONGODB_USERNAME=alucardsp_db_user
+MONGODB_USERNAME=usuario_do_seu_db
 MONGODB_PASSWORD=sua_senha_aqui
 MONGODB_URI=mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@szlab.crjhpiy.mongodb.net/?appName=szlab
 PORT=50000
