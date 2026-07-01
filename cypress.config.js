@@ -7,7 +7,13 @@ module.exports = defineConfig({
   allowCypressEnv: true,
   env: {
         mongodb: {
-            uri: process.env.MONGODB_URI || 'mongodb+srv://alucardsp_db_user:***@szlab.crjhpiy.mongodb.net/?appName=szlab',
+            uri: (() => {
+                const { MONGODB_USERNAME, MONGODB_PASSWORD, SEUCLUSTER, SEUAPP } = process.env;
+                if (MONGODB_USERNAME && MONGODB_PASSWORD && SEUCLUSTER) {
+                    return `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${SEUCLUSTER}.mongodb.net/?appName=${SEUAPP || 'livros-api'}`;
+                }
+                return 'mongodb+srv://usuario:***@cluster.mongodb.net/?appName=livros-api';
+            })(),
             database: 'test',
             collection: 'livros'
         }
